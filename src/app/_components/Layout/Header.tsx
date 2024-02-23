@@ -20,7 +20,7 @@ const Avatar = ({ id, alt }: { id: string; alt: string }) => {
 
 export default function Header({ children }: { children?: React.ReactNode }) {
   return (
-    <header className="z-10 bg-white">
+    <header className="z-20 bg-white sticky top-0">
       <nav
         className="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8"
         aria-label="Global"
