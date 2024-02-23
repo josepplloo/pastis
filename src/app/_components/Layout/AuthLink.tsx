@@ -9,12 +9,12 @@ export default async function AuthLink() {
 
   return (
     <div className="lg:flex lg:flex-1 lg:justify-end">
-      <p className="sm:hidden text-center text-2xl text-white">
+      <p className="text-center text-2xl text-white sm:hidden">
         {session && <span>Logged in as {session.user?.name}</span>}
       </p>
       <Link
         href={session ? "/api/auth/signout" : "/api/auth/signin"}
-        className="text-sm font-semibold leading-6 text-gray-900 hover:bg-white/20"
+        className="text-sm font-bold leading-6 text-gray-900 hover:bg-white/20"
       >
         {session ? "Sign out" : "Sign in"}
       </Link>

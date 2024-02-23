@@ -3,13 +3,12 @@ import { useState } from "react";
 import { aboutMenu } from "@/app/_utils/constants";
 import Link from "next/link";
 
-
 export default function Dialog() {
   const [dialogMenuOpen, setDialogMenuOpen] = useState(false);
   const handleDialogOpen = () => setDialogMenuOpen(!dialogMenuOpen);
 
   return (
-    <div className="-mx-3">
+    <div className="z-10 -mx-3">
       <button
         type="button"
         className="flex w-full items-center justify-between rounded-lg py-2 pl-3 pr-3.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
@@ -33,18 +32,18 @@ export default function Dialog() {
       </button>
       {/* <!-- 'Product' sub-menu, show/hide based on menu state. --> */}
       <div
-        className={`${dialogMenuOpen && "hidden"} space-y-2" id="disclosure-1 mt-2`}
+        className={`${!dialogMenuOpen && "hidden"} space-y-2" id="disclosure-1 mt-2`}
       >
         {aboutMenu.map((item) => (
-            <Link
-              key={item.id}
-              href={item.link}
-              className="block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 text-gray-900 hover:bg-gray-50"
-            >
-              {item.title}
-            </Link>
+          <Link
+            key={item.id}
+            href={item.link}
+            className="block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 text-gray-900 hover:bg-gray-50"
+          >
+            {item.title}
+          </Link>
         ))}
       </div>
     </div>
   );
-};
+}
