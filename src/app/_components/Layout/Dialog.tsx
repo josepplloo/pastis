@@ -25,9 +25,9 @@ export default function Dialog() {
           aria-hidden="true"
         >
           <path
-            fill-rule="evenodd"
+            fillRule="evenodd"
             d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"
-            clip-rule="evenodd"
+            clipRule="evenodd"
           />
         </svg>
       </button>
@@ -37,6 +37,7 @@ export default function Dialog() {
       >
         {aboutMenu.map((item) => (
             <Link
+              key={item.id}
               href={item.link}
               className="block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 text-gray-900 hover:bg-gray-50"
             >

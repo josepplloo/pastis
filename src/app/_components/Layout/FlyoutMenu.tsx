@@ -23,9 +23,9 @@ export default function FlyoutMenu() {
           aria-hidden="true"
         >
           <path
-            fill-rule="evenodd"
+            fillRule="evenodd"
             d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"
-            clip-rule="evenodd"
+            clipRule="evenodd"
           />
         </svg>
       </button>
@@ -44,16 +44,14 @@ export default function FlyoutMenu() {
       >
         <div className="p-4">
           {aboutMenu.map((item) => (
-            <div className="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm leading-6 hover:bg-gray-50">
+            <div key={item.id} className="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm leading-6 hover:bg-gray-50">
               <div className="flex h-11 w-11 flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white">
                 {item.avatar}
               </div>
               <div className="flex-auto">
-                <Link href={item.link} passHref legacyBehavior>
-                  <a href={item.link} className="block font-semibold text-gray-900">
+                  <Link href={item.link} className="block font-semibold text-gray-900">
                     {item.title}
-                  </a>
-                </Link>  
+                  </Link>
                 <p className="mt-1 text-gray-600">{item.lore}</p>
               </div>
             </div>
