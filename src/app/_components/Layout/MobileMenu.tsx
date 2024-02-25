@@ -1,8 +1,9 @@
 "use client";
 import Image from "next/image";
-import React, { useState } from "react";
 import Link from "next/link";
 import Dialog from "./Dialog";
+import { useDispatch, useSelector } from "./Context/index";
+import { actionCreators, LayoutState } from "./Context/reducer";
 
 const mainMenu = ["Gallery", "Features", "Documentation"];
 
@@ -11,13 +12,15 @@ export const Avatar = ({ id, alt }: { id: string; alt: string }) => {
 };
 
 export default function ReactMenu() {
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const handleMenuOpen = () => setMobileMenuOpen(!mobileMenuOpen);
+  const dispatch = useDispatch();
+  const isMenuOpen = useSelector((state: LayoutState) => state.MENU_OPEN);
+  const handleMenuOpen = () => dispatch(actionCreators.toggleMenu(!isMenuOpen));
 
   return (
     <div className="z-20 flex">
       <div className="flex lg:hidden">
         <button
+          id="nav_hamburger_button"
           type="button"
           className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700"
           onClick={handleMenuOpen}
@@ -40,7 +43,7 @@ export default function ReactMenu() {
         </button>
       </div>
       <div
-        className={`${!mobileMenuOpen && "hidden"} lg:hidden`}
+        className={`${!isMenuOpen && "hidden"} lg:hidden`}
         role="dialog"
         aria-modal="true"
       >
@@ -83,6 +86,7 @@ export default function ReactMenu() {
                     key={item}
                     href="#"
                     className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
+                    onClick={handleMenuOpen}
                   >
                     {item}
                   </Link>

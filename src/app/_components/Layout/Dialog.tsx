@@ -1,9 +1,16 @@
 "use client";
+import Link from "next/link";
 import { useState } from "react";
 import { aboutMenu } from "@/app/_utils/constants";
-import Link from "next/link";
+import { useDispatch, useSelector } from "./Context/index";
+import { actionCreators, LayoutState } from "./Context/reducer";
 
 export default function Dialog() {
+  // Mobile menu context
+  const dispatch = useDispatch();
+  const isMenuOpen = useSelector((state: LayoutState) => state.MENU_OPEN);
+  const handleMenuOpen = () => dispatch(actionCreators.toggleMenu(!isMenuOpen));
+  // internal state
   const [dialogMenuOpen, setDialogMenuOpen] = useState(false);
   const handleDialogOpen = () => setDialogMenuOpen(!dialogMenuOpen);
 
@@ -38,6 +45,7 @@ export default function Dialog() {
           <Link
             key={item.id}
             href={item.link}
+            onClick={handleMenuOpen}
             className="block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 text-gray-900 hover:bg-gray-50"
           >
             {item.title}

@@ -1,60 +1,60 @@
 import { User } from "@prisma/client";
-
-const isMenuOpen = false;
-const user = { } as User
+const MENU_OPEN = "MENU_OPEN";
 
 export interface LayoutState {
-  isMenuOpen: boolean;
+  [MENU_OPEN]: boolean;
   user: User;
-};
+}
 
 export const INITIAL_STATE: LayoutState = {
-  isMenuOpen,
-  user,
+  [MENU_OPEN]: false,
+  user: {
+    id: "",
+    name: null,
+    email: null,
+    emailVerified: null,
+    image: null,
+  },
 };
 
 export enum ActionsTypes {
-  SET_USER = 'SET_USER',
-  SET_OPEN_MENU = 'SET_OPEN_MENU'
-};
+  SET_USER = "SET_USER",
+  TOGGLE_MENU = "TOGGLE_MENU",
+}
 
 interface SetUser {
   type: ActionsTypes.SET_USER;
   payload: User;
-};
+}
 
-interface SetOpenMenu {
-  type: ActionsTypes.SET_OPEN_MENU;
+interface ToggleMenu {
+  type: ActionsTypes.TOGGLE_MENU;
   payload: boolean;
-};
+}
 
-export type Action = 
-  SetUser |
-  SetOpenMenu;
+export type Action = SetUser | ToggleMenu;
 
-export const ActionCreators = {
+export const actionCreators = {
   setUser: (data: User): SetUser => ({
     type: ActionsTypes.SET_USER,
-    payload: data
+    payload: data,
   }),
-  setOpenMenu: (data: boolean): SetOpenMenu => ({
-    type: ActionsTypes.SET_OPEN_MENU,
-    payload: data
-  })
+  toggleMenu: (data: boolean): ToggleMenu => ({
+    type: ActionsTypes.TOGGLE_MENU,
+    payload: data,
+  }),
 };
 
-export const reducer = (
-  state: LayoutState,
-  action: Action
-): LayoutState => {
+export const reducer = (state: LayoutState, action: Action): LayoutState => {
   switch (action.type) {
-    case ActionsTypes.SET_OPEN_MENU: {
-      return {...state, isMenuOpen: action.payload}
+    case ActionsTypes.TOGGLE_MENU: {
+      return { ...state, [MENU_OPEN]: action.payload };
     }
     case ActionsTypes.SET_USER: {
-      return {...state, user: action.payload}
+      return { ...state, user: action.payload };
     }
-    default:
+    default: {
       return state;
+    }
   }
-}
+};

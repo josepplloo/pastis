@@ -1,4 +1,3 @@
-"use client";
 import { createContext, useContext } from "react";
 
 export const contextFactory = <State, Action>(initialState: State) => {

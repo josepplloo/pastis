@@ -54,6 +54,7 @@ export default function FlyoutMenu() {
               <div className="flex-auto">
                 <Link
                   href={item.link}
+                  onClick={handleMenuOpen}
                   className="block font-semibold text-gray-900"
                 >
                   {item.title}
