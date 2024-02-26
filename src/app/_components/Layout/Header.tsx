@@ -1,23 +1,15 @@
-import Image from "next/image";
 import Link from "next/link";
 import FlyoutMenu from "./FlyoutMenu";
 import MobileMenu from "./MobileMenu";
 import AuthLink from "./AuthLink";
 import { LayoutProvider } from "./Context/Provider";
+import { Avatar } from "../Avatar";
 
-const mainMenu = ["Gallery", "Features", "Documentation"];
-
-const Avatar = ({ id, alt }: { id: string; alt: string }) => {
-  return (
-    <Image
-      src={`/_images/${id}`}
-      alt={alt}
-      width="46"
-      height="48"
-      style={{ width: "52%" }}
-    />
-  );
-};
+const mainMenu = [
+  { id: "Gallery", path: "/gallery" },
+  { id: "Features", path: "/features" },
+  { id: "Documentation", path: "/docs" },
+];
 
 export default function Header({ children }: { children?: React.ReactNode }) {
   return (
@@ -27,20 +19,24 @@ export default function Header({ children }: { children?: React.ReactNode }) {
         aria-label="Global"
       >
         <div className="flex lg:flex-1">
-          <a href="#" className="-m-1.5 p-1.5">
+          <Link href="/#" className="-m-1.5 p-1.5">
             <span className="sr-only">me</span>
-            <Avatar id="me.svg" alt="A portrait of me" />
-          </a>
+            <Avatar
+              id="me.svg"
+              alt="A portrait of me"
+              styles={{ width: "52%" }}
+            />
+          </Link>
         </div>
         <div className="hidden lg:flex lg:gap-x-12">
           <FlyoutMenu />
           {mainMenu.map((item) => (
             <Link
-              key={item}
-              href="#"
+              key={item.id}
+              href={item.path}
               className="text-sm font-semibold leading-6 text-gray-900"
             >
-              {item}
+              {item.id}
             </Link>
           ))}
         </div>
