@@ -1,15 +1,33 @@
 "use client";
 import Link from "next/link";
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { aboutMenu } from "@/app/_utils/constants";
 
 export default function FlyoutMenu() {
+  const componentRef = useRef<HTMLDivElement>(null);
   const [menuOpen, setMenuOpen] = useState(false);
+
   const handleMenuOpen = () => setMenuOpen(!menuOpen);
+  const handleClick = (event: MouseEvent) => {
+    const isClickOut =
+      componentRef.current &&
+      !componentRef.current.contains(event.target as Node);
+    if (isClickOut && menuOpen) {
+      handleMenuOpen();
+    }
+  };
+
+  useEffect(() => {
+    document.addEventListener("mousedown", handleClick);
+    return () => {
+      document.removeEventListener("mousedown", handleClick);
+    };
+  }, [menuOpen]);
 
   return (
-    <div className="relative">
+    <div className="relative" ref={componentRef} id="about_button_container">
       <button
+        id="about_button"
         type="button"
         className="flex items-center gap-x-1 text-sm font-semibold leading-6 text-gray-900"
         aria-expanded="false"
@@ -29,16 +47,6 @@ export default function FlyoutMenu() {
           />
         </svg>
       </button>
-      {/*<!--
-          'Product' flyout menu, show/hide based on flyout menu state.
-          Create an animation maybe with CSSAnimate component
-          Entering: "transition ease-out duration-200"
-            From: "opacity-0 translate-y-1"
-            To: "opacity-100 translate-y-0"
-          Leaving: "transition ease-in duration-150"
-            From: "opacity-100 translate-y-0"
-            To: "opacity-0 translate-y-1"
-  -->*/}
       <div
         className={`${!menuOpen && "hidden"} absolute -left-8 top-full z-20 mt-3 w-screen max-w-md overflow-hidden rounded-3xl bg-white shadow-lg ring-1 ring-gray-900/5`}
       >
