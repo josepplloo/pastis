@@ -1,6 +1,6 @@
 import { contextFactory } from '@/app/_components/ContextFactory';
 
-import { LayoutState, Action, INITIAL_STATE } from './reducer';
+import { type LayoutState, type Action, INITIAL_STATE } from './reducer';
 
 export const { useSelector, Context, useDispatch } = contextFactory<
     LayoutState,

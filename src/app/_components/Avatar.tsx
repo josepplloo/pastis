@@ -8,7 +8,6 @@ export const Avatar = ({ id, alt, styles }: { id: string; alt: string, styles: R
       width="46"
       height="48"
       style={styles}
-      className="hover:animate-bounce transform-gpu"
     />
   );
 };
