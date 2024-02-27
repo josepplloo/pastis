@@ -4,8 +4,7 @@ import Link from "next/link";
 import Dialog from "./Dialog";
 import { useDispatch, useSelector } from "./Context/index";
 import { actionCreators, LayoutState } from "./Context/reducer";
-
-const mainMenu = ["Gallery", "Features", "Documentation"];
+import { mainMenu } from "@/app/_utils/constants";
 
 export const Avatar = ({ id, alt }: { id: string; alt: string }) => {
   return <Image src={`/_images/${id}`} alt={alt} width="46" height="46" />;
@@ -83,12 +82,12 @@ export default function ReactMenu() {
                 <Dialog />
                 {mainMenu.map((item) => (
                   <Link
-                    key={item}
-                    href="#"
+                    key={item.id}
+                    href={item.path}
                     className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
                     onClick={handleMenuOpen}
                   >
-                    {item}
+                    {item.id}
                   </Link>
                 ))}
               </div>

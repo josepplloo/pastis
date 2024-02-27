@@ -1,22 +1,58 @@
 import React from "react";
 
+const listOfExperiences = [
+  {
+    id: 1,
+    description:
+      "Create, migrate, edit, adapt, integrate, maintain, document, monitor and validate code for websites and web application interfaces.",
+  },
+  {
+    id: 2,
+    description:
+      "Perform test, analyze data to oversee quality, security, user interface interactions, within others non functional requirements enhancement.",
+  },
+  {
+    id: 3,
+    description:
+      "Establish and execute protocols for continuous website updates.",
+  },
+  {
+    id: 4,
+    description:
+      "Potentially engage in website structure and design discussions alongside colleges, designers and stakeholders.",
+  },
+  {
+    id: 5,
+    description:
+      "Gather and document user requirements, and formulate both logical and physical specifications.",
+  },
+  {
+    id: 6,
+    description:
+      "Potentially lead and organize small teams in the development of software.",
+  },
+  {
+    id: 7,
+    description:
+      "Plan, design and coordinate the development, installation, integration and operation of computer-based systems.",
+  },
+];
+
 export default function Experience() {
   return (
-    <section id="experience" className="flex min-h-screen flex-col items-center justify-center bg-gradient-to-b from-[#2e026d] to-[#15162c] text-white">
+    <section
+      id="experience"
+      className="flex min-h-screen flex-col items-center justify-center bg-gradient-to-b from-[#2e026d] to-[#15162c] text-white"
+    >
       <div className="container flex flex-col items-center justify-center gap-12 px-4 py-16 ">
-        <h4 className="text-5xl font-extrabold tracking-tight sm:text-[5rem]">
-          Experience
+        <h4 className="text-5xl font-extrabold tracking-tight sm:text-[4rem]">
+          know how ...
         </h4>
-        <p className="text-lg">
-          Finding material for a systematic literature review of Product Line
-          Engineering and Data Mining. Maintain DataVar software, build
-          pipelines on Pentaho for ITIL projects and deliver Red Hat enterprise
-          solutions. Incremental Definition of Product Catalog for a Product
-          Line in Guide to industry adoption of software product lines.{" "}
-          <a target="_blank" href="https://goo.gl/d29dFt">
-            Check here.{" "}
-          </a>
-        </p>
+        <ul className="list-none text-justify">
+          {listOfExperiences.map((item) => (
+            <li key={item.id} className="hover:underline">{item.description}</li>
+          ))}
+        </ul>
       </div>
     </section>
   );

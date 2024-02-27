@@ -19,7 +19,7 @@ export const aboutMenu = [
       </svg>
     ),
     id: 1,
-    link: '/#about'
+    link: "/#about",
   },
   {
     title: "Experience",
@@ -46,7 +46,7 @@ export const aboutMenu = [
       </svg>
     ),
     id: 2,
-    link: '/#experience'
+    link: "/#experience",
   },
   {
     title: "Knowledge",
@@ -68,7 +68,7 @@ export const aboutMenu = [
       </svg>
     ),
     id: 3,
-    link: '/#knowledge'
+    link: "/#knowledge",
   },
   {
     title: "Motivation",
@@ -90,7 +90,7 @@ export const aboutMenu = [
       </svg>
     ),
     id: 4,
-    link: '#motivation'
+    link: "#motivation",
   },
   {
     title: "Contributions",
@@ -112,7 +112,7 @@ export const aboutMenu = [
       </svg>
     ),
     id: 5,
-    link: '/#contributions'
+    link: "/#contributions",
   },
   {
     title: "Contact",
@@ -132,6 +132,12 @@ export const aboutMenu = [
       </svg>
     ),
     id: 6,
-    link: '/#contact'
+    link: "/#contact",
   },
+];
+
+export const mainMenu = [
+  { id: "Gallery", path: "/gallery" },
+  { id: "Features", path: "/features" },
+  { id: "Documentation", path: "/docs" },
 ];

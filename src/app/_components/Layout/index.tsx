@@ -3,6 +3,7 @@ import Providers from "./Providers";
 
 import { Inter } from "next/font/google";
 import Header from "./Header";
+import { Maintenance } from "@/app/_components/Maintenance";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -23,7 +24,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`font-sans ${inter.variable}`}>
-        <Header />
+        <Header><Maintenance /></Header>
         <Providers>{children}</Providers>
       </body>
     </html>

@@ -4,16 +4,12 @@ import MobileMenu from "./MobileMenu";
 import AuthLink from "./AuthLink";
 import { LayoutProvider } from "./Context/Provider";
 import { Avatar } from "../Avatar";
-
-const mainMenu = [
-  { id: "Gallery", path: "/gallery" },
-  { id: "Features", path: "/features" },
-  { id: "Documentation", path: "/docs" },
-];
+import { mainMenu } from "@/app/_utils/constants";
 
 export default function Header({ children }: { children?: React.ReactNode }) {
   return (
     <header className="sticky top-0 z-20 bg-white">
+      {children}
       <nav
         className="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8"
         aria-label="Global"
@@ -47,7 +43,6 @@ export default function Header({ children }: { children?: React.ReactNode }) {
           </LayoutProvider>
         </div>
       </nav>
-      {/* {<!-- Mobile menu, show/hide based on menu open state. -->} */}
     </header>
   );
 }
