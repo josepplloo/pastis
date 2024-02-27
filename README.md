@@ -1,11 +1,13 @@
 # Getting stater
 
-If you want to contribute please fork ths repo from [porpup's project](https://github.com/porpup/Cool_Project).
+If you want to contribute please fork this repo from [pastis's repo](https://github.com/josepplloo/pastis).
+At this moment this have my own content but fell free to reused or check only how the components or the architecture is made it.
+
 
 In your fork:
 - Create a new branch with the name of the [new feature]
 > ``git checkout -b"new feature"``
-- Create a Pull request to [porpup's project](https://github.com/porpup/Cool_Project)
+- Create a Pull request to [pastis's project](https://github.com/josepplloo/pastis)
 
 # Installation and Run
 
@@ -59,7 +61,7 @@ Try not to make changes in more than 6 files per PR unless is a special case.
 [ your screenshot! ]
 ```
 
-2. Push your changes to your own fork and make a push request to [the main project](https://github.com/porpup/Cool_Project/pulls)
+2. Push your changes to your own fork and make a push request to [the main project](https://github.com/josepplloo/pastis/pulls)
 
 ---
 
