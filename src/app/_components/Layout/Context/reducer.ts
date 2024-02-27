@@ -1,4 +1,4 @@
-import { User } from "@prisma/client";
+import { type User } from "@prisma/client";
 const MENU_OPEN = "MENU_OPEN";
 
 export interface LayoutState {

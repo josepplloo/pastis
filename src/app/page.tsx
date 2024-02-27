@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import { unstable_noStore as noStore } from "next/cache";
 import { getServerAuthSession } from "@/server/auth";
 import { api } from "@/trpc/server";

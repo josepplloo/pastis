@@ -22,6 +22,7 @@ export default function FlyoutMenu() {
     return () => {
       document.removeEventListener("mousedown", handleClick);
     };
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [menuOpen]);
 
   return (

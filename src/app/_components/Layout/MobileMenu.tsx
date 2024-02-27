@@ -3,7 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import Dialog from "./Dialog";
 import { useDispatch, useSelector } from "./Context/index";
-import { actionCreators, LayoutState } from "./Context/reducer";
+import { actionCreators } from "./Context/reducer";
 import { mainMenu } from "@/app/_utils/constants";
 
 export const Avatar = ({ id, alt }: { id: string; alt: string }) => {
@@ -12,7 +12,8 @@ export const Avatar = ({ id, alt }: { id: string; alt: string }) => {
 
 export default function ReactMenu() {
   const dispatch = useDispatch();
-  const isMenuOpen = useSelector((state: LayoutState) => state.MENU_OPEN);
+  // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
+  const isMenuOpen = useSelector((state) => state.MENU_OPEN);
   const handleMenuOpen = () => dispatch(actionCreators.toggleMenu(!isMenuOpen));
 
   return (

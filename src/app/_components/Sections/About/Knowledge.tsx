@@ -7,21 +7,21 @@ const listOfKnowledge = [
       "Programming languages: Javascript, TypeScript, HTML, CSS, and Python.",
   },
   {
-    id: 1,
+    id: 2,
     description:
       "Tools, libraries and frameworks: React.js, SASS, Webpack, Jest, React testing library, Storybook, Node.js, Express.js, ApolloGraphQL, Docker, Git, styled-components, Material UI, Figma, Zeppelin, Hasura, Ant Design, react-JSON schema-form, react-hook-form, Redux, Atlassian, Jira, Confluence, Traefik, Bash, Three.js, LaTeX, Sphinx documentation, ATLAS, CVAT, Git, Github, Gitlab, CI/CD, Scrum, tech Stacks, ITIL, CRISP-DM.",
   },
   {
-    id: 1,
+    id: 3,
     description: "Knowledge of API RESTful services, SOAP, and WebSockets.",
   },
   {
-    id: 1,
+    id: 4,
     description:
       "Knowledge of software-engineering components: operating systems, relational and nonrelational databases, cache databases, and messaging queues.",
   },
   {
-    id: 1,
+    id: 5,
     description:
       "Soft skills: open software advocate, mentorship and continual learner, individual contributor, adaptability, data analysis, and trilingual in Spanish, English and French",
   },

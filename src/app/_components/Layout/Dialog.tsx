@@ -3,12 +3,13 @@ import Link from "next/link";
 import { useState } from "react";
 import { aboutMenu } from "@/app/_utils/constants";
 import { useDispatch, useSelector } from "./Context/index";
-import { actionCreators, LayoutState } from "./Context/reducer";
+import { actionCreators,  } from "./Context/reducer";
 
 export default function Dialog() {
   // Mobile menu context
   const dispatch = useDispatch();
-  const isMenuOpen = useSelector((state: LayoutState) => state.MENU_OPEN);
+  // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
+  const isMenuOpen = useSelector((state) => state.MENU_OPEN);
   const handleMenuOpen = () => dispatch(actionCreators.toggleMenu(!isMenuOpen));
   // internal state
   const [dialogMenuOpen, setDialogMenuOpen] = useState(false);
