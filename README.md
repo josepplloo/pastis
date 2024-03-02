@@ -1,7 +1,7 @@
-# Getting stater
+# Getting started
 
 If you want to contribute please fork this repo from [pastis's repo](https://github.com/josepplloo/pastis).
-At this moment this have my own content but fell free to reused or check only how the components or the architecture is made it.
+At this moment this has my own content but feel free to reuse it or check only how the components or the architecture is made.
 
 
 In your fork:
@@ -19,7 +19,7 @@ One of the following versions of [Node.js](https://nodejs.org/en/download/) must
 * `20.5.0` or higher
 
 
-Make sure you have the latest version of [![npm version](https://img.shields.io/npm/v/npm.svg)](https://npm.im/npm)(//npmjs.com/package/npm)
+Make sure you have the latest version of [![npm version](https://img.shields.io/npm/v/npm.svg)](https://npm.im/npm)
 
 
 Install the dependencies:
@@ -61,7 +61,7 @@ Try not to make changes in more than 6 files per PR unless is a special case.
 [ your screenshot! ]
 ```
 
-2. Push your changes to your own fork and make a push request to [the main project](https://github.com/josepplloo/pastis/pulls)
+2. Push your changes to your own fork and make a pull request to [the main project](https://github.com/josepplloo/pastis/pulls)
 
 ---
 
