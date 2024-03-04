@@ -22,11 +22,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
-      <body className={`font-sans ${inter.variable}`}>
-        <Header><Maintenance /></Header>
-        <Providers>{children}</Providers>
-      </body>
-    </html>
+    <body className={`font-sans ${inter.variable}`}>
+      <Header>
+        <Maintenance />
+      </Header>
+      <Providers>{children}</Providers>
+    </body>
   );
 }

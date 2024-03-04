@@ -1,0 +1,33 @@
+{
+  "about": {
+    "menu":{
+      "about":{
+        "title": "Professional Identity",
+        "lore": "What are I looking for?"
+      },
+      "experience": {
+        "title": "Experience",
+        "lore": "My professional Skills and my personal qualities"
+      },
+      "knowledge":{
+        "title": "Knowledge",
+        "lore": "Training and education"
+      },
+      "motivation": {
+        "title": "Motivation",
+        "lore": "Driven by wisdom"
+      },
+      "contributions": {
+        "title": "Contributions",
+        "lore": "Support your people"
+      },
+      "contact": {
+        "title": "Contact",
+        "lore": "Speak directly with me"
+      },
+    },
+    "gallery": "Gallery",
+    "features": "Features",
+    "docs": "Documentation"
+  }
+}

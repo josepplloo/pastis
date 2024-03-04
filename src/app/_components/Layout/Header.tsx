@@ -5,6 +5,7 @@ import AuthLink from "./AuthLink";
 import { LayoutProvider } from "./Context/Provider";
 import { Avatar } from "../Avatar";
 import { mainMenu } from "@/app/_utils/constants";
+import { LanguageList } from "../LanguageList";
 
 export default function Header({ children }: { children?: React.ReactNode }) {
   return (
@@ -39,6 +40,7 @@ export default function Header({ children }: { children?: React.ReactNode }) {
         <div className="flex w-20 justify-between">
           <AuthLink />
           <LayoutProvider>
+            <LanguageList />
             <MobileMenu />
           </LayoutProvider>
         </div>
