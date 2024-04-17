@@ -16,7 +16,7 @@ export default function Header({ children }: { children?: React.ReactNode }) {
         aria-label="Global"
       >
         <div className="flex lg:flex-1">
-          <Link href="/" className="-m-1.5 p-1.5">
+          <Link href="/?" className="-m-1.5 p-1.5">
             <span className="sr-only">me</span>
             <Avatar
               id="me.svg"
@@ -37,7 +37,7 @@ export default function Header({ children }: { children?: React.ReactNode }) {
             </Link>
           ))}
         </div>
-        <div className="flex w-20 justify-between">
+        <div className="flex w-32 justify-between">
           <AuthLink />
           <LayoutProvider>
             <LanguageList />
