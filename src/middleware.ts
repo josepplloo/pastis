@@ -18,7 +18,6 @@ function getLocale(request: NextRequest): string | undefined {
   );
 
   const locale = match(languages, locales, i18n.defaultLocale);
-    console.log({locale})
   return locale;
 }
 
@@ -47,7 +46,7 @@ export function middleware(request: NextRequest) {
     const locale = getLocale(request);
 
     // e.g. incoming request is /products 
-    // The new URL is now /en-US/products
+    // The new URL is now /en/products
     return NextResponse.redirect(
       new URL(
         `/${locale}${pathname.startsWith("/") ? "" : "/"}${pathname}`,
