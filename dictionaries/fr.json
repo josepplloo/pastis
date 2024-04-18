@@ -1,0 +1,33 @@
+{
+  "about": {
+    "menu":{
+      "about":{
+        "title": "Identité professionnelle",
+        "lore": "Qu'est-ce que je cherche?"
+      },
+      "experience": {
+        "title": "Expérience",
+        "lore": "Mes compétences professionnelles et mes qualités personnelles"
+      },
+      "knowledge":{
+        "title": "Connaissance",
+        "lore": "Formation et éducation"
+      },
+      "motivation": {
+        "title": "Motivation",
+        "lore": "Guidé par la sagesse"
+      },
+      "contributions": {
+        "title": "Contributions",
+        "lore": "Soutenez votre peuple"
+      },
+      "contact": {
+        "title": "Contact",
+        "lore": "Parlez-moi"
+      }
+    },
+    "gallery": "Galerie",
+    "features": "Caractéristiques",
+    "docs": "Documentation"
+  }
+}

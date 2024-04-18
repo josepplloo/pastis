@@ -1,0 +1,33 @@
+{
+  "about": {
+    "menu":{
+      "about":{
+        "title": "Identidad Profesional",
+        "lore": "Qué es lo que busco?"
+      },
+      "experience": {
+        "title": "Expérience",
+        "lore": "Mis competencias profesionales y cualidades personales"
+      },
+      "knowledge":{
+        "title": "Conocimientos",
+        "lore": "Formación y educación"
+      },
+      "motivation": {
+        "title": "Motivación",
+        "lore": "Subir a hombros de gigantes"
+      },
+      "contributions": {
+        "title": "Contribuciones",
+        "lore": "Soporte y colaboraciones"
+      },
+      "contact": {
+        "title": "Contacto",
+        "lore": "Háblame!"
+      }
+    },
+    "gallery": "Galería",
+    "features": "Propiedades",
+    "docs": "Documentación"
+  }
+}
