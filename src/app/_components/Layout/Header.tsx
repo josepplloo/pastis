@@ -1,5 +1,5 @@
 import Link from "next/link";
-import FlyoutMenu from "./FlyoutMenu";
+import { FlyoutMenu } from "./FlyoutMenu";
 import MobileMenu from "./MobileMenu";
 import AuthLink from "./AuthLink";
 import { LayoutProvider } from "./Context/Provider";
@@ -7,7 +7,11 @@ import { Avatar } from "../Avatar";
 import { mainMenu } from "@/app/_utils/constants";
 import { LanguageList } from "../LanguageList";
 
-export default function Header({ children }: { children?: React.ReactNode }) {
+type Props = {
+  children: React.ReactNode
+};
+
+export default function Header({ children }: Props) {
   return (
     <header className="sticky top-0 z-20 bg-white">
       {children}
