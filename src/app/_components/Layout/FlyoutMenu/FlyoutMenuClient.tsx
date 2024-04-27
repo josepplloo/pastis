@@ -2,11 +2,41 @@
 import Link from "next/link";
 import React, { useEffect, useRef, useState } from "react";
 import { aboutMenu } from "@/app/_utils/constants";
+import { useParams } from 'next/navigation';
+import type { LocaleKeys } from "i18n-config";
 
-export default function FlyoutMenu() {
+type FlyoutMenu = {
+  about: {
+    menu: {
+      about: {
+        title: string,
+        lore: string
+      }
+    },
+    gallery: string,
+    features: string,
+    docs: string
+  }    
+};
+
+type Dictionary = {
+  'en': FlyoutMenu,
+  'es': FlyoutMenu,
+  'fr': FlyoutMenu
+};
+
+export const FlyoutMenuClient = ({dictionary}: {dictionary: Dictionary}) => {
   const componentRef = useRef<HTMLDivElement>(null);
   const [menuOpen, setMenuOpen] = useState(false);
+  const params = useParams<{ lang: LocaleKeys}>()
+  let lang = params.lang;
+  // TODO: to avoid this lang could be in the global state ;)
+  if(Object.keys(params).length === 0) {
+    lang = 'en';
+  }
 
+  const labels = Object.values(dictionary[lang].about.menu);
+  
   const handleMenuOpen = () => setMenuOpen(!menuOpen);
   const handleClick = (event: MouseEvent) => {
     const isClickOut =
@@ -52,7 +82,7 @@ export default function FlyoutMenu() {
         className={`${!menuOpen && "hidden"} absolute -left-8 top-full z-20 mt-3 w-screen max-w-md overflow-hidden rounded-3xl bg-white shadow-lg ring-1 ring-gray-900/5`}
       >
         <div className="p-4">
-          {aboutMenu.map((item) => (
+          {aboutMenu.map((item, index) => (
             <div
               key={item.id}
               className="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm leading-6 hover:bg-gray-50"
@@ -66,9 +96,9 @@ export default function FlyoutMenu() {
                   onClick={handleMenuOpen}
                   className="block font-semibold text-gray-900"
                 >
-                  {item.title}
+                  {labels[index]?.title}
                 </Link>
-                <p className="mt-1 text-gray-600">{item.lore}</p>
+                <p className="mt-1 text-gray-600">{labels[index]?.lore}</p>
               </div>
             </div>
           ))}
