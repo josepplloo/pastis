@@ -1,6 +1,7 @@
+import Link from "next/link";
 import { Avatar } from "./_components/Avatar";
 
-export default function Loading() {
+export default function NotFound() {
   // You can add any UI inside Loading, including a Skeleton.
   return (
     <div className="m-0 overflow-hidden bg-inherit">
@@ -18,7 +19,9 @@ export default function Loading() {
       ></section>
       <div className="flex min-h-screen flex-col items-center justify-center">
         <Avatar id="me.svg" alt="Loading frame" styles={{ with: "100%" }} />
-        <p>Loading</p>
+        <h2>Not Found</h2>
+        <p>Could not find requested resource</p>
+        <Link href="/?">Return Home</Link>
       </div>
     </div>
   );

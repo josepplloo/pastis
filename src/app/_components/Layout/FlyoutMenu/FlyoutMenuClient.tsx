@@ -28,8 +28,13 @@ type Dictionary = {
 export const FlyoutMenuClient = ({dictionary}: {dictionary: Dictionary}) => {
   const componentRef = useRef<HTMLDivElement>(null);
   const [menuOpen, setMenuOpen] = useState(false);
-  const {lang} = useParams<{ lang: LocaleKeys}>()
- 
+  const params = useParams<{ lang: LocaleKeys}>()
+  let lang = params.lang;
+  // TODO: to avoid this lang could be in the global state ;)
+  if(Object.keys(params).length === 0) {
+    lang = 'en';
+  }
+
   const labels = Object.values(dictionary[lang].about.menu);
   
   const handleMenuOpen = () => setMenuOpen(!menuOpen);
