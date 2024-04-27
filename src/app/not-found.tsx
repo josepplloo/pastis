@@ -21,7 +21,7 @@ export default function NotFound() {
         <Avatar id="me.svg" alt="Loading frame" styles={{ with: "100%" }} />
         <h2>Not Found</h2>
         <p>Could not find requested resource</p>
-        <Link href="/?">Return Home</Link>
+        <Link href="/" className="z-10">Return Home</Link>
       </div>
     </div>
   );
