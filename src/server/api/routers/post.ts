@@ -1,4 +1,5 @@
 import { z } from "zod";
+import { getDictionaryHome } from "get-dictionary";
 
 import {
   createTRPCRouter,
@@ -14,6 +15,14 @@ export const postRouter = createTRPCRouter({
         greeting: `Hello ${input.text}`,
       };
     }),
+
+  aboutMe: publicProcedure  
+  .input(z.object({ lang: z.enum(['es', 'en', 'fr']) }))
+  .query(async({ input }) => {
+    const {lang} = input;
+    const aboutMe = await getDictionaryHome(lang);
+    return aboutMe;
+  }),
 
   create: protectedProcedure
     .input(z.object({ name: z.string().min(1) }))

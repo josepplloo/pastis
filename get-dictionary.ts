@@ -11,3 +11,19 @@ const dictionaries = {
 
 export const getDictionary = async (locale: LocaleKeys) =>
   dictionaries[locale]?.() ?? dictionaries.en();
+
+// dictionaries for home page "/"
+export type HomeKeys = "professionalIdentity";
+export type professionalIdentity = {
+  title: string,
+  subtitle: string[],
+  content: string[]
+}
+const dictionariesHome = {
+  en: () => import("./dictionaries/professionalIdentity/en.json").then((module) => module.default),
+  es: () => import("./dictionaries/professionalIdentity/es.json").then((module) => module.default),
+  fr: () => import("./dictionaries/professionalIdentity/fr.json").then((module) => module.default),
+};
+
+export const getDictionaryHome = (locale: LocaleKeys) =>
+  dictionariesHome[locale]?.() ?? dictionariesHome.en();
