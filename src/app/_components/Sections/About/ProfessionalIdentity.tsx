@@ -1,6 +1,10 @@
 import React from "react";
+import { api } from "@/trpc/server";
+import { type LocaleKeys } from "i18n-config";
 
-export default function ProfessionalIdentity() {
+
+export default async function ProfessionalIdentity({ lang }: { lang: LocaleKeys }) {
+  const {content, title, subtitle} = await api.post.aboutMe.query({lang});
   return (
     <section
       id="about"
@@ -8,16 +12,13 @@ export default function ProfessionalIdentity() {
     >
       <div className="container flex flex-col items-center justify-center gap-12 px-4 py-16 ">
         <h5 className="text-5m font-extrabold tracking-tight sm:text-[2rem]">
-          About me.
+          {title}
         </h5>
         <h4 className="text-5xl font-extrabold tracking-tight sm:text-[4rem]">
-          Software Engineer
+          {subtitle}
         </h4>
         <p className="text-lg">
-          Informatics engineer expert in software engineering, in the tech
-          industry for more than ten years working with several contexts and
-          domains, focused in how variability and reusability will increase
-          productivity, quality and reduce time to market.
+          {content}
         </p>
       </div>
     </section>
