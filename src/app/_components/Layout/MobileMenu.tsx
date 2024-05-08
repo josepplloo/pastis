@@ -4,18 +4,36 @@ import Link from "next/link";
 import Dialog from "./Dialog";
 import { useDispatch, useSelector } from "./Context/index";
 import { actionCreators } from "./Context/reducer";
-import { mainMenu } from "@/app/_utils/constants";
+import { type LocaleKeys } from "i18n-config"; 
+import { useEffect, useState } from "react";
+import { fetchMenu } from "./actions";
 
 export const Avatar = ({ id, alt }: { id: string; alt: string }) => {
   return <Image src={`/_images/${id}`} alt={alt} width="46" height="46" />;
 };
 
-export default function ReactMenu() {
+type MenuData = {
+  id: string;
+  path: string;
+}[];
+
+export function MobileMainMenu() {
   const dispatch = useDispatch();
+  
+  const [menuData, setMenuData] = useState<MenuData>([])
+
   // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
   const isMenuOpen = useSelector((state) => state.MENU_OPEN);
+  // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
+  const lang:LocaleKeys = useSelector((state) => state.lang);
+
   const handleMenuOpen = () => dispatch(actionCreators.toggleMenu(!isMenuOpen));
 
+  useEffect(() => {
+    fetchMenu(lang)
+    .then(menu => setMenuData(menu))
+    .catch(() => setMenuData([]));
+  },[lang])
   return (
     <div className="z-20 flex">
       <div className="flex lg:hidden">
@@ -81,7 +99,7 @@ export default function ReactMenu() {
             <div className="-my-6 divide-y divide-gray-500/10">
               <div className="space-y-2 py-6">
                 <Dialog />
-                {mainMenu.map((item) => (
+                {menuData.map((item) => (
                   <Link
                     key={item.id}
                     href={item.path}

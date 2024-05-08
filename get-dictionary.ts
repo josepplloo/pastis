@@ -24,6 +24,15 @@ const dictionariesHome = {
   es: () => import("./dictionaries/professionalIdentity/es.json").then((module) => module.default),
   fr: () => import("./dictionaries/professionalIdentity/fr.json").then((module) => module.default),
 };
-
 export const getDictionaryHome = (locale: LocaleKeys) =>
   dictionariesHome[locale]?.() ?? dictionariesHome.en();
+
+// dictionaries for the general menu
+const dictionariesMenu = {
+  en: () => import("./dictionaries/mainMenu/en.json").then((module) => module.default),
+  es: () => import("./dictionaries/mainMenu/es.json").then((module) => module.default),
+  fr: () => import("./dictionaries/mainMenu/fr.json").then((module) => module.default),
+};
+
+export const getDictionaryMenu = (locale: LocaleKeys) =>
+  dictionariesMenu[locale]?.() ?? dictionariesMenu.en();

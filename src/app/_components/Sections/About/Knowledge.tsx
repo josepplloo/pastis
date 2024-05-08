@@ -30,7 +30,7 @@ const listOfKnowledge = [
 export default function Knowledge() {
   return (
     <section
-      id="#knowledge"
+      id="knowledge"
       className="flex min-h-screen flex-col items-center justify-center bg-gradient-to-b from-[#02066d] to-[#090c35] text-white"
     >
       <div className="container flex flex-col items-center justify-center gap-12 px-4 py-16 ">

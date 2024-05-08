@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { FlyoutMenu } from "./FlyoutMenu";
-import MobileMenu from "./MobileMenu";
+import { MobileMainMenu } from "./MobileMenu";
 import AuthLink from "./AuthLink";
 import { LayoutProvider } from "./Context/Provider";
 import { Avatar } from "../Avatar";
@@ -45,7 +45,7 @@ export default function Header({ children }: Props) {
           <AuthLink />
           <LayoutProvider>
             <LanguageList />
-            <MobileMenu />
+            <MobileMainMenu />
           </LayoutProvider>
         </div>
       </nav>

@@ -1,11 +1,12 @@
 import { z } from "zod";
-import { getDictionaryHome } from "get-dictionary";
-
+import { getDictionaryHome, getDictionaryMenu } from "get-dictionary";
 import {
   createTRPCRouter,
   protectedProcedure,
   publicProcedure,
 } from "@/server/api/trpc";
+
+const zLangList = z.enum(['es', 'en', 'fr']);
 
 export const postRouter = createTRPCRouter({
   hello: publicProcedure
@@ -17,10 +18,18 @@ export const postRouter = createTRPCRouter({
     }),
 
   aboutMe: publicProcedure  
-  .input(z.object({ lang: z.enum(['es', 'en', 'fr']) }))
+  .input(z.object({ lang: zLangList }))
   .query(async({ input }) => {
     const {lang} = input;
     const aboutMe = await getDictionaryHome(lang);
+    return aboutMe;
+  }),
+
+  getMenu: publicProcedure  
+  .input(z.object({ lang: zLangList }))
+  .query(async({ input }) => {
+    const {lang} = input;
+    const aboutMe = await getDictionaryMenu(lang);
     return aboutMe;
   }),
 
