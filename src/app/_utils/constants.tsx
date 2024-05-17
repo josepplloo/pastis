@@ -90,7 +90,7 @@ export const aboutMenu = [
       </svg>
     ),
     id: 4,
-    link: "#motivation",
+    link: "/#motivation",
   },
   {
     title: "Contributions",

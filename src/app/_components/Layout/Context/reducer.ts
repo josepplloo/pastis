@@ -1,9 +1,12 @@
 import { type User } from "@prisma/client";
+import { type LocaleKeys } from "i18n-config"; 
+
 const MENU_OPEN = "MENU_OPEN";
 
 export interface LayoutState {
   [MENU_OPEN]: boolean;
   user: User;
+  lang: LocaleKeys
 }
 
 export const INITIAL_STATE: LayoutState = {
@@ -15,11 +18,13 @@ export const INITIAL_STATE: LayoutState = {
     emailVerified: null,
     image: null,
   },
+  lang: 'en',
 };
 
 export enum ActionsTypes {
   SET_USER = "SET_USER",
   TOGGLE_MENU = "TOGGLE_MENU",
+  SET_LANG = "SET_LANG",
 }
 
 interface SetUser {
@@ -27,12 +32,17 @@ interface SetUser {
   payload: User;
 }
 
+interface SetLang {
+  type: ActionsTypes.SET_LANG;
+  payload: LocaleKeys;
+}
+
 interface ToggleMenu {
   type: ActionsTypes.TOGGLE_MENU;
   payload: boolean;
 }
 
-export type Action = SetUser | ToggleMenu;
+export type Action = SetUser | ToggleMenu | SetLang;
 
 export const actionCreators = {
   setUser: (data: User): SetUser => ({
@@ -41,6 +51,10 @@ export const actionCreators = {
   }),
   toggleMenu: (data: boolean): ToggleMenu => ({
     type: ActionsTypes.TOGGLE_MENU,
+    payload: data,
+  }),
+  setLang: (data: LocaleKeys): SetLang => ({
+    type: ActionsTypes.SET_LANG,
     payload: data,
   }),
 };
@@ -52,6 +66,9 @@ export const reducer = (state: LayoutState, action: Action): LayoutState => {
     }
     case ActionsTypes.SET_USER: {
       return { ...state, user: action.payload };
+    }
+    case ActionsTypes.SET_LANG: {
+      return { ...state, lang: action.payload };
     }
     default: {
       return state;

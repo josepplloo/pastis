@@ -1,0 +1,5 @@
+[
+  { "id": "Gallery", "path": "/gallery" },
+  { "id": "Features", "path": "/features" },
+  { "id": "Documentation", "path": "/docs" }
+]
